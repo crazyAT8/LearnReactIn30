@@ -1,0 +1,45 @@
+[5:03] 
+- you are always going to start with your App componenet
+    bc this is the root of your application
+
+- src > App.js
+    write the HTML inside of our app component
+        inside of the return of the App() function 
+    
+    first return is a seperate component we create 
+        called <TodoList />
+            as the first element inside of our application
+        now this is not standard HTML 
+            its actually JSX - React's HTML 
+                which will allow you to embed components inside other components
+                    for instance 
+                        we have our <App /> component in our index.js 
+                        and we have our <TodoList /> in our App.js
+
+- src > create new file named after the component we just created 
+    'TodoList.js'
+
+SideNote:
+    VS code extension 'ES7 React/Redux/GraphQL/React-Native snippets'
+        needs to be installed 
+            with this installed we can type 
+                'rfc' + ENTER at the top of the new file 
+                    and it will create a function component inside of React
+                        giving it the name of the file 
+
+- src > App.js 
+    import TodoList from './TodoList'
+        which is giving the App() the TodoList component 
+            
+- src > TodoList.js 
+    type something inside the <div> tags 
+        to make sure it's working 
+
+- src > App.js 
+    create the input for adding a new todo 
+        <input type="text" />
+            and we will get an ERROR from this 
+                bc you can't have two JSX elements next to each other 
+                inside of a return 
+                    bc the return can only return one thing 
+                 

@@ -1,0 +1,53 @@
+started: 3/13/24
+URL: https://www.youtube.com/watch?v=hQAHSlTtcmY&list=PLZlA0Gpn_vH_NT5zPVp18nGe_W9LqBDQK&index=6
+title: Learn React In 30 Minutes
+
+[:55] Get started
+- open vs code
+    inside a blank folder 
+        with no capital letters and no spaces
+- checked the npm version
+    w/ 'npm -v'
+
+- then created the app w/
+    'npx create-react-app .'
+        if you use a period at the end
+            the app will be named after the folder that the program is already in 
+            just make sure it doesn't have any capital letters
+                thats a no no, I guess
+- src > index.js
+    we are feeding the ReactDOM the App.js function 'App()'
+
+- npm start 
+    to bring the app up in a development environment
+
+- scr > index.js
+    which is at the top of the src folder
+        it renders the content we pass into it 
+            at a certain element of in the index.html file 
+                which is in our public folder
+
+- src > App.js 
+    Remove/strip everything down to the bare bones
+        go ahead and remove the boiler plate code 
+            within the app function 
+                and just have it return null
+        as well as the other import statements
+            except import React from 'react'
+- src folder 
+    remove all of the files except 
+        App.js and index.js 
+- src > index.js 
+    remove everything except for the React, ReactDOM, and App imports 
+        and the ReactDOM root render 
+            should just show you a blank white page 
+
+
+
+- write the html for the app
+
+[15:30] OnClick Listener
+
+[18:45] Download UUID
+need to download a library for generating numbers
+    'npm i uuid'
