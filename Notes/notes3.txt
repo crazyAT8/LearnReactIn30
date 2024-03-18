@@ -1,0 +1,65 @@
+[8:35] setup state of our application
+
+- react manages the state 
+    inside of the application 
+        and when that state changes 
+            it rerenders things for us
+- we want to store all of our todo's inside of a state 
+    so we can actually render those todos
+    everytime we change a todo 
+        add a todo 
+            delete a todo 
+                it will rerender our entire component tree 
+
+- so in order to use state in a function componenet 
+    we need to use the useState hook
+
+- src > App.js 
+    import the useState from React 
+        import React, { useState } from 'react';
+    call the useState function 
+        inside of the App() function 
+            and pass it our default state
+                our default being an empty array
+    set the useState as a variable 
+        const useState([])
+    useState actually returns an array 
+        so we can actually destructure that array and set it equal to useState
+            and the first element is all of our todos 
+                and the second will be a function that allows us to update our todos 
+                    to test it out we can 
+                        pass in some default data
+                            as solid state arguments
+                                const [todos, setTodos] = useState(['Todo 1', 'Todo 2'])
+    pass these todos 
+        to out <TodoList />
+            <TodoList todos={todos} />
+                this is what's called props 
+
+
+
+[11:13] HTML for our Todo Component 
+
+- src > TodoList.js
+    render out those todos
+        add todos as an argument of the function 
+            ' export default function TodoList({ todos, toggleTodo }) { '
+    
+    test by 
+        <div>
+            {todos.length}
+        </div>
+
+        the curly braces tells it that this is going to be JavaScript code 
+            and as a result it prints out 2 
+                bc of our two arguments we add in our App() function 
+
+    but getting the length isn't very useful 
+        we need to return each one of the todos 
+            we can do this very easily inside of a loop 
+    we actually want to map over our current array 
+        and return elements of our actual todos 
+            an we're going to do this with a todo component
+
+[11:45] Create a Todo
+

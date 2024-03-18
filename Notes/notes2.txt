@@ -42,4 +42,15 @@ SideNote:
                 bc you can't have two JSX elements next to each other 
                 inside of a return 
                     bc the return can only return one thing 
+    what we can do is wrap the two tags in empty tags 
+        which is called a fragment 
+            which allows us to return the fragment - the one thing 
+                and what ever is in the fragment
+    next lets add two buttons 
+        1) to add to the 'Todo' list
+        2) clear an item from the list 
+    add a <div> 
+        telling us how many 'Todos' we have left
                  
+and thats all of the HTML 
+    for our App component 
