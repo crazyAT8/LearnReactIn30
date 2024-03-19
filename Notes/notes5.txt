@@ -1,0 +1,31 @@
+[13:43] 
+
+we cannot just store the name of our todo 
+    we need to store an object of whether or not it's complete
+        we need to have an ID as well
+
+- src > App.js 
+    we need to change the parameters of the useState 
+        '  const [todos, setTodos] = useState([{ id: 1, name: 'Todo 1', complete: false }]) '
+
+- src > TodoList.js 
+    add a .id to our todo 
+
+        todos.map(todo => {
+            return <Todo key={todo.id} todo={todo} />
+        })
+
+- src > Todo.js 
+    add name to the todo 
+
+        return (
+            <div>
+                {todo.name}
+            </div>
+        )
+
+[14:30] Check box next to list of dos 
+
+now that the todos are showing 
+    lets put a checkbox next to it 
+        to check whether it is complete or not 

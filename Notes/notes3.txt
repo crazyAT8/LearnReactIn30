@@ -32,7 +32,7 @@
                             as solid state arguments
                                 const [todos, setTodos] = useState(['Todo 1', 'Todo 2'])
     pass these todos 
-        to out <TodoList />
+        to our <TodoList />
             <TodoList todos={todos} />
                 this is what's called props 
 
@@ -43,7 +43,7 @@
 - src > TodoList.js
     render out those todos
         add todos as an argument of the function 
-            ' export default function TodoList({ todos, toggleTodo }) { '
+            ' export default function TodoList({ todos }) { '
     
     test by 
         <div>
@@ -61,5 +61,5 @@
         and return elements of our actual todos 
             an we're going to do this with a todo component
 
-[11:45] Create a Todo
+
 

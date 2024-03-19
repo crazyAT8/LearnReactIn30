@@ -1,0 +1,71 @@
+[11:45] Create a Todo.js file
+
+- src > Todo.js 
+    rfc short hand to create an export default function 
+        that takes the same name as the file name 
+
+    inside of the Todo function 
+        we are going to pass the 'todo' as an argument/parameter 
+            'export default function Todo({ todo })'
+    
+- src > TodoList.js 
+    add an import for the Todo file 
+        " import Todo from './Todo' "
+    inside the TodoList function 
+        add the todos.map
+            and for each one of our todos 
+            we want to return a todos element/component 
+                and we want to pass it the current 'todo'
+
+                return (
+                    todos.map(todo => {
+                        return <Todo todo={todo} />
+                    })
+                )
+
+- src > Todo.js
+    for test sake lets just print 
+        the names or the arguments in the useState function call 
+            in the App.js file 
+                do this by 
+
+                import React from 'react'
+
+                export default function Todo({ todo }) {
+                    return (
+                        <div>
+                            {todo.name}
+                        </div>
+                    )
+                }
+
+    and if you look in your browser 
+        the names of the two arguments should be 
+            showing on the screen 
+
+    if we inspect this with our DevTools 
+        we will see an error that says 
+            'Warning: Each child in .... a list should hace a unique "key" prop'
+                which is saying that React doesn't know how to update these todos properly
+                    bc everytime our array changes 
+                    it's going to re-render every member of the array 
+                        but we just need it to re-render the members that have changed
+            So to solve this 
+                go to 
+- src > TodoList.js 
+                and add a key attribute to the 
+                    returned <Todo/> tag inside of of our todos.map()
+                        make sure that the key is unique for the 
+                            array that you're actually using it with 
+                                essentially this key allows react to only rerender 
+                                    or change the compomnemnts 
+                                        that actually change inside of our array 
+                                instead of rerendering them every single time 
+                                    it's really there for efficiency purposes
+
+                                todos.map(todo => {
+                                    return <Todo key={todo} todo={todo} />
+                                })
+
+                            go back to the devOps console in your browser
+                                and notice that there's no longer an error 
