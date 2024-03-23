@@ -1,0 +1,43 @@
+[22:28] - 
+
+At this point 
+    we have no way of toggling our todos 
+        if you try to check one of the checkboxes in the local browser
+            they don't actually check 
+                we need to write some code to 
+                    store the change of our todo 
+                        from being not complete to complete 
+                            or vice-versa
+                                lets write a function to do that 
+- src > App.js 
+    create a function called toggleTodo 
+        which is going to take an ID (as a parameter) of the todo 
+            that we want to toggle 
+    inside the function 
+        first we want to toggle the todo from our list 
+            so lets create a variable to get a new list of todos 
+                which will be equal to our current copy of our todos list 
+                    this is so we don't change our todos list 
+                    and so that we always create a copy in react 
+                        you should never directly modify a state variable 
+                        always create a copy before modifying it 
+                            and use that copy to set the new state 
+        second we want to get the todo 
+            that we're actually trying to modify 
+                which we get from our newTodos 
+                    and by finding the todo that has 
+                        an id that is equal to our id that 
+                            we passed into this function 
+        third we are are going to say that 
+            todo.complete is not equal to todo.complete 
+        fourth
+            we are going to set our todos 
+                to our new todos 
+
+                    function toggleTodo(id) {
+                        const newTodos = [...todos]
+                        const todo = newTodos.find(todo => todo.id === id)
+                        todo.complete = !todo.complete
+                        setTodos(newTodos)
+                    }
+

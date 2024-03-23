@@ -1,0 +1,26 @@
+Universal Unique Identifier (UUID)
+
+
+UUID stands for Universal Unique Identifier. 
+It is a 128-bit number used to uniquely identify information in computer systems. 
+The size and method of generating the UUID ensure that it is unique 
+    not just within a specific database or application but across multiple systems, networks, and locations, 
+        making it ideal for ensuring the uniqueness of identifiers across large-scale distributed systems.
+
+The structure of a UUID is standardized by the RFC 4122     
+    and can represent a very large number of unique identifiers (about 3.4 × 10^38 unique values). 
+UUIDs are used in various applications 
+    and services where unique identifiers are needed, 
+        such as in the creation of database keys, 
+            to identify sessions in web applications, 
+                for tracking unique user interactions, 
+                    and in many other contexts where unique identifiers are required 
+                        without central coordination or registration.
+
+UUIDs can be generated using various algorithms, 
+    which ensures that even without a centralized authority to issue them, 
+        collisions (two generated UUIDs being the same) are extremely improbable. 
+Some of the standard methods include 
+    using the MAC address of the computer that generates the UUID, 
+        the current time, or purely random numbers, 
+            depending on the version of the UUID being generated.

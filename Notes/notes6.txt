@@ -1,0 +1,79 @@
+[15:30] Setup an onClick listener on our 'Add Todo' button 
+
+- src > App.js
+    App() function 
+        find the button in the returns 
+            add the 'onClick' attribute 
+                and we want to set this equal to a function 
+                    we'll make one up called 'handleAddTodo'
+
+    Creat that function just below the useState variable 
+        it is going to take that event property 
+            so put an 'e' in the arguments 
+                ' function handleAddTodo(e) '
+    Inside this function 
+        we need to set our Todos 
+            to one more todos
+                take our previous todos add our new todo
+                    and then set our todos to that list 
+        one problem 
+            we do not have access to the 'name' 
+                inside of the input field 
+                    we need to grab the name from the input field 
+        useRef Hook 
+            comes in handy in these situations 
+                add 'useRef' to the import React at the top of the page 
+            
+            this hook allows us to reference elements inside of our HTML
+                in this case and file 
+                    the <input> tag 
+                        add the attribute ref and have it equal 
+                            a variable that we are going to call 'todoNameRef'
+                                '<input ref={todoNameRef} type="text" />'
+            lets create this variable
+                just below our useState variable 
+                    'const todoNameRef = useRef()' 
+                        now we are going to have access to input tag with the variable 
+    handleAddTodo()
+        lets add our new input reference variable    
+            and attach a .current to it
+                which is going to reference whatever element 
+                    we're currently referencing 
+                        in this case it's the <input> 
+            and attach a .value 
+                which gets the value of the input 
+        make that all in to a variable 
+            called name 
+        as a precation
+            add a conditional if statement 
+                that if the 'name' equals an empty string 
+                    then just return 
+        Test 
+            console.log(name) in the function 
+                type something in the input 
+                    look to the devtools to see if got printed
+        Clear value from input
+            last thing inside the function 
+                have the todoNameRef.current.value equal null
+                    this way, once you click to add it to the list 
+                        the value will disappear right after 
+        Set our Todos  
+            two different ways to set them 
+                1) setTodos([])
+                    pass it an empty array to clear all of the Todos 
+                2) setTodos(prevTodos =>
+                    use the previous value
+                        prevTodos is a function call
+                            a function that will give us the previous Todos 
+                                which allows us to change that
+                                    and now say that our new Todos is equal to 
+                                        the previous Todos 
+                                            and we want to spread this over our array
+                                                and add a new Todo to that list 
+                    
+                    setTodos(prevTodos => {
+                        return [...prevTodos, {id: 1, name: name, complete: false}]
+                    })
+
+                        basically set the return 
+                            to the parameter/arguments of our former useState 

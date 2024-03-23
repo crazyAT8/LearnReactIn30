@@ -1,0 +1,82 @@
+[18:30] Adding UUID 
+
+Go ahead and add something to the Todo list in the browser 
+    and then go to DevTools console 
+        observe there is a warning saying 
+            ' Encountered two children with the same key, '1'.
+              Keys should be unique so that componenets maintain
+              their identity across updates.
+              Non-unique keys may cause children 
+              to be duplicated and or omitted'
+
+    solve this by downloading a library that 
+        lets us create random IDs
+            best library for this is UUID
+
+- terminal 
+    ' npm i uuid '
+        will download the library 
+
+- src > App.js 
+    import uuidv4 from 'uuid/v4'------------------------------------------> import { v4 as uuidv4 } from 'uuid';
+        at the top of the page 
+
+    handleAddTodo() function 
+        setTodos 
+            { id: uuidv4() }
+
+    re-test in DevTools 
+
+SideNote: 
+
+            getting this error message: 
+            ERROR in ./src/App.js 7:0-29
+            Module not found: Error: Package path ./v4 is not exported from package 
+                C:\Users\lenaf\learn-react-in-x-minutes\node_modules\uuid (see exports field in 
+                C:\Users\lenaf\learn-react-in-x-minutes\node_modules\uuid\package.json)
+
+
+            ============================================================================================
+
+            The error message you're encountering suggests there's 
+                an issue with how you're importing the uuid module in your App.js file, 
+                    specifically with the path to ./v4. 
+            This could be due to changes in the way the uuid package is structured or exported, 
+                especially in its more recent versions.
+
+            Starting from version 7.x of the uuid library, 
+                the way to import UUID functions (like v4 for generating random UUIDs) has changed. 
+            Instead of importing from a subpath (like uuid/v4), 
+                you should import the specific version directly from the package. 
+            Here's how you can correct the issue based on the current version of uuid you are using:
+
+            For uuid Version 7.x or Later
+            Instead of importing v4 with a path like ./v4, you should import it directly from uuid like this:
+
+                import { v4 as uuidv4 } from 'uuid';
+
+            And then you can use uuidv4() wherever you need to generate a UUID.
+
+            Steps to Correct the Issue
+                1. Check Your Import Statement: 
+                    Open your App.js file and locate the import statement for uuid. Change it to the format shown above.
+
+                2. Check package.json for uuid Version: 
+                    It's good to confirm the version of uuid installed. 
+                    You can find this in your package.json file under dependencies. 
+                    If you're using version 7.x or later, 
+                        the corrected import statement should work. 
+                    If you're somehow on an older version and wish to use the new import syntax, 
+                        consider updating uuid with npm install uuid@latest.
+
+                3. Restart Your Development Server: 
+                    After making changes, stop your development server if it's still running, 
+                        and restart it to make sure the changes are picked up. 
+                    You can usually do this with Ctrl+C in the terminal to stop the server, 
+                        and npm start to start it again.
+
+                4. Verify the App in the Browser: 
+                    Once your development server is running again, 
+                        check the app in your browser to see if the error has been resolved.
+
+            If you've followed these steps and are still encountering issues, make sure there are no typos in your import statement, and ensure that your development environment is correctly set up and that there are no caching issues that might be causing an outdated version of your code to run.

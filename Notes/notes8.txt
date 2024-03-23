@@ -1,0 +1,69 @@
+[19:30] - useEffect
+
+If you refresh the browser 
+    notice that our Todos aren't showing up
+        they are not being persisted across page load 
+            we want to store these inside local storage 
+    
+Easiest way to do things that are a side effect 
+    ex: everytime that we add a Todo 
+        we want to save it 
+            we can us the useEffect hook 
+
+- src > App.js 
+    add just below useRef 
+        useEffect is just a function 
+            that will take another function as it's first parameter  
+                and this is the function we want to do things 
+                everytime something changes we want to call this function 
+                    how we determine when to call this function 
+                        is that we pass it an array of properties 
+                        this array will be all of our dependencies
+                            anytime that anything in this array changes 
+                                we want to use the useEffect function 
+                                    so anytime our [todos] changes 
+                                        we want to save our todos 
+            going to save them to localStorage
+                with a .setItem attached 
+                    and give it a key
+                        need to create a variable for it 
+    outside of the App() function 
+        create " const LOCAL_STORAGE_KEY = 'todoApp.todos' "
+            pass that variable name into setItem 
+                and also pass it a string to stingify our todos 
+
+                useEffect(() => {
+                    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+                }, [todos]) 
+
+- Local Browser 
+    add some todos to the list and refresh 
+        but they still aren't showing up 
+            this is bc we need to use another effect 
+
+- src > App.js 
+    App() function 
+        below the todoNameRef variable 
+            add another useEffect function 
+                this one will be called to load our todos 
+                    just once right when our component loads 
+                        if we pass it an empty array of dependencies
+                            it will call the function once 
+                                and since the empty array never changes 
+                                it will never recall this useEffect 
+            want to set this useEffect function 
+                to what we get back from our stored todos 
+                    by creating a variable for storedTodos 
+                    having it equal localStorage.getItem(LOCAL_STORAGE_KEY) 
+                        then we want to set our Todos to the stored todos 
+                            only if we have stored todos 
+                            add a conditional if statement
+                    but we will get an error 
+                        bc item we are getting from local storage is a string 
+                            so we need to parse this with JSON 
+                                which will convert it to an array
+                        
+                useEffect(() => {
+                    const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
+                    if (storedTodos) setTodos(storedTodos)
+                }, [])

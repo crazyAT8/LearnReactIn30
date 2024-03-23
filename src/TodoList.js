@@ -6,8 +6,10 @@ export default function TodoList({ todos, toggleTodo }) {
     // <div>
     //   {todos.length}
     // </div>
-    todos.map(todo => {
-        return <Todo key={todo.id} toggleTodo={toggleTodo} todo={todo} />
-    })
+    <div>
+        {todos.map(todo => {
+            return <Todo key={todo.id} toggleTodo={toggleTodo} todo={todo} />
+        })}
+    </div>
   )
 }

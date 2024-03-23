@@ -1,0 +1,61 @@
+[24:00] - Toggle Todo List 
+
+But we don't have anyway to use the toggle function 
+    bc our todos are stored inside of the Todo component
+        which is referenced inside of our TodoList 
+            which is referenced inside of our App 
+So we need to pass the toggle function down 
+    into our todo list 
+
+- src > App.js 
+    in the return section 
+        add the toggleTodo prop inside of the <TodoList/> tag 
+            with the value of {toggleTodo}
+                ' <TodoList todos={todos} toggleTodo={toggleTodo} /> '
+- src > TodoList.js 
+    add/import the toggleTodo in the peremeters of the TodoList() function 
+        and then pass it down to this individual todo 
+            basically adding the exact same thing that you just added in the App() function 
+
+                todos.map(todo => {
+                    return <Todo key={todo.id} toggleTodo={toggleTodo} todo={todo} />
+                })
+
+- src > Todo.js 
+    add/import the toggleTodo in the peremeters of the Todo() function 
+        and inside the input 
+            we need to add an onChange
+                on which we want to call a function 
+                not our toggleTodo bc we need to make sure we pass an ID 
+                    so we are going to make one up for now called 
+                        {handleTodoClick}
+        create that function above the return 
+            and inside this function  
+                we need it to call toggleTodo
+                    and pass it our todo.id 
+
+                        export default function Todo({ todo, toggleTodo }) {
+                            function handleTodoClick() {
+                                toggleTodo(todo.id)
+                            }
+                            return (
+                                <div>
+                                    <label>
+                                        <input type="checkbox" checked={todo.complete} onChange={handleTodoClick} />
+                                        {todo.name}
+                                    </label>
+                                </div>
+                            )
+                        }
+Check the browser
+    the checkboxes should be working 
+
+Overview 
+    everytime we click it's calling the onChange
+        which is calling our toggleTodo function with the ID of the todo were inside of 
+            that inturn gets passed up through TodoList
+                into our App 
+                    which calls the toggleTodo function
+                        which resets our todo list variable 
+                            the the new list of todos
+                                with the todo checked that we clicked on 

@@ -44,10 +44,3 @@ title: Learn React In 30 Minutes
 
 
 
-- write the html for the app
-
-[15:30] OnClick Listener
-
-[18:45] Download UUID
-need to download a library for generating numbers
-    'npm i uuid'

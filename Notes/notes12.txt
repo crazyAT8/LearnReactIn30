@@ -1,0 +1,21 @@
+[26:05] - Clear Todo List 
+
+
+- src > App.js 
+    in the App() function 
+        in the returns 
+            Clear Complete button 
+                add an onclick listener that triggers 
+                    a handleClearTodos function 
+
+    create that function just above the return 
+        and this function is going to set our Todos
+            to the new list that doen't have any of our complete ones 
+                create a variable called newTodos
+                    thats equal to our current todos 
+                        which we want a filter out all of our todos 
+                            that are not complete
+        set our todos 
+            to the new todos list 
+
+- test in browser 

@@ -1,0 +1,14 @@
+[25:35] - count the uncomplete 
+
+Now lets make the last div in our App() reutrn 
+    tell us how many todos are unchecked 
+
+- src > App.js 
+    in the return 
+        the <div> at the bottom 
+            we need to run a filter on the todos 
+                and pass in all of the ones that aren't complete 
+
+                ' <div>{todos.filter(todo => !todo.complete).length} left to do</div> '
+
+- check in browser 

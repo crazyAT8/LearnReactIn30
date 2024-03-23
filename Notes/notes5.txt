@@ -29,3 +29,30 @@ we cannot just store the name of our todo
 now that the todos are showing 
     lets put a checkbox next to it 
         to check whether it is complete or not 
+
+- src > Todo.js 
+    need to put a <label> tag within our div 
+        and an <input> inside of that,
+            and give it and attribute of type="checkbox"
+                and another attribute called checked={todo.complete}
+
+                return (
+                    <div>
+                        <label>
+                            <input type="checkbox" checked={todo.complete} />
+                            {todo.name}
+                        </label>
+                    </div>
+                )
+
+As a test 
+- src > App.js 
+    in our useState variable 
+        change the 'complete' key value to 'true'
+            look in the browser and the Todo1 should be checked 
+
+    set up events so that we can add to the todo list 
+        remove the default key:value arguments of the useState variable 
+            and just have it as an empty array when the app starts 
+                but we want to add todos when we click the 'Add Todo' button 
+                
